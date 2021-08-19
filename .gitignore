@@ -1,0 +1,5 @@
+*.txt
+data/
+model/
+results/
+training_checkpoints/
