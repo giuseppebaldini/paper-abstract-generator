@@ -32,15 +32,15 @@ The text generation system is composed of several sequential steps grouped in fo
 
 A brief walkthrough of each notebook is provided below.
 
-### 1. Download 
+### [1. Download](notebooks/download.ipynb) 
 
-The [`download`](download.ipynb) step downloads the ACL anthology abstracts directly from the source and saves it in the `data` folder.
+Downloads the ACL anthology abstracts directly from the source and saves it in the `data` folder.
 
-### 2. Preprocess
+### [2. Preprocess](notebooks/preprocess.ipynb)
 
 #### 2.1 Tokens
 
-In [`preprocess`](preprocess.ipynb) 20% of the abstracts published after 2015 are converted into a `.txt` file and then tokenised. 
+20% of the abstracts published after 2015 are converted into a `.txt` file and then tokenised. 
 
 ```
 ['we',
@@ -77,9 +77,9 @@ After training for `100` epochs, our final embedded vocabulary size is `33831`.
 
 The preprocessed dataset is then split 80/20 in `training` and `validation` sets.
 
-### 3. Baselines
+### [3. Baselines](notebooks/baselines.ipynb)
 
-The [`baseline`](baselines.ipynb) models used for benchmarking are:
+Models used for benchmarking are:
 
 1. GRU
 2. GRU + Word2Vec
@@ -92,9 +92,9 @@ The models are constructed using Tensorflow / Keras and evaluated using perplexi
 
 *Table 2: Baseline models hyperparameters*
 
-### 4. Model
+### [4. Model](notebooks/model.ipynb)
 
-In order to build our own [`model`](model.ipynb), we use a reduced version of the tokenized dictionary to train an `LSA` in order to extract topic information from the dataset and create their vector representation.
+In order to build our conditioned model, we use a reduced version of the tokenized dictionary to train an `LSA` in order to extract topic information from the dataset and create their vector representation.
 
 After being properly
 dimensioned using `PCA`, the topic matrix is then used to initialize the hidden and cell states of our `LSTM` models (with and without `Word2Vec` embeddings).
